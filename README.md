@@ -1,4 +1,4 @@
-# linux privilege acceleration | phising
+# linux privilege acceleration | phishing
 
 A simple sudo - phishing program that allows you to still the root user password
 
