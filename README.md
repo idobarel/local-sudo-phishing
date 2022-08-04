@@ -1,6 +1,6 @@
 # linux privilege acceleration | phishing
 
-A simple sudo - phishing program that allows you to still the root user password
+A simple sudo - phishing program that allows you to steal the root user password.
 
 # Usage:
 first of all, make sure the _sudo_ file is an executable.
